@@ -1,0 +1,44 @@
+<html>
+<head>
+</head>
+  <body>
+  <script src="aframe.js"></script>
+  <a-scene>
+  <a-assets>
+     
+    <img id="enemy-sprite" crossorigin="" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Trafalgar_Square_360_Panorama_Cropped_Sky,_London_-_Jun_2009.jpg">
+	
+	<img id="inf" crossorigin="" src="http://static.giantbomb.com/uploads/scale_small/3/32132/1871118-iron_man.png" height="100px" width="100px"  >
+	 <img id="enemy" crossorigin="" src="https://ucarecdn.com/f11bb3e6-ceb4-427c-bcaa-351cabac37d5/">
+  </a-assets>
+  <a-plane color="#FFF" width="1" height="1" depth="1"
+         position="-10 2 -5"
+         src="#inf" id="hello"></a-plane>
+	
+	<a-box color="#FFF" width="2" height="2" depth="2"
+         position="-50 20 -20"
+         src="#inf" id="text">
+
+    <!-- Animation will only play when the box is clicked. -->
+  </a-box>
+  <a-camera position="0 1.8 0">
+    <a-cursor color="#2E3A87">
+  </a-camera>
+  <a-sky src="#enemy-sprite" transparent="true"></a-sky>
+</a-scene>
+<script>
+var box = document.querySelector('#hello');
+box.addEventListener('mouseenter', function () {
+   box.setAttribute('src',"#enemy");
+});
+var box3 = document.querySelector('#hello');
+box3.addEventListener('mouseleave', function () {
+   box3.setAttribute('src',"#inf");
+});
+var box2 = document.querySelector('#text');
+box2.addEventListener('mouseenter', function () {
+   box2.setAttribute('src',"#enemy");
+});
+</script>
+</body>
+</html>
