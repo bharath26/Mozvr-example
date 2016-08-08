@@ -17,6 +17,8 @@
 <img id="uxarea"  crossorigin="" src="http://i.imgur.com/6ruzQPt.png">
 <img id="alcatarea"  crossorigin="" src="http://i.imgur.com/9QNnNzR.png">
 <img id="back"  crossorigin="" src="http://i.imgur.com/469Ocks.png">
+<img id="spots"  crossorigin="" src="http://i.imgur.com/PlEr8Mv.png">
+<img id="message1"  crossorigin="" src="http://i.imgur.com/0y3zgoh.png">
 </a-assets>
     <a-sky  src="#first" id="background" rotation="0 50 0" ></a-sky>
   <a-camera position="0 0 0">
@@ -67,8 +69,13 @@
          position="-65 90 80" rotation="0 150 0"
          src="#back" id="back6" visible="false">
 	</a-image>
+	  	<a-image color="#FFF" width="30" height="40"
+         position="50 30 -40" rotation="0 0 0"
+         src="#spots" id="msg1" visible="true">
 </a-scene>
 <script>
+
+
 var sky=document.querySelector('#background');
 var fenter = document.querySelector('#firstenter');
 var senter = document.querySelector('#secondenter');
@@ -80,12 +87,14 @@ var b3 = document.querySelector('#back3');
 var b4 = document.querySelector('#back4');
 var b5 = document.querySelector('#back5');
 var b6 = document.querySelector('#back6');
+var m1=document.querySelector('#msg1');
 fenter.addEventListener('mouseenter', function () {
 	   sky.setAttribute('src',"#second");
 	   sky.setAttribute('rotation',"0 -100 0");
 	   fenter.setAttribute('visible','false');
 	   senter.setAttribute('visible','true');
 	   b2.setAttribute('visible','true');
+	   m1.setAttribute('visible','false');
 	});
 	
 b2.addEventListener('mouseenter', function () {
@@ -94,6 +103,7 @@ b2.addEventListener('mouseenter', function () {
 	   fenter.setAttribute('visible','true');
 	   senter.setAttribute('visible','false');
 	   b2.setAttribute('visible','false');
+	   m1.setAttribute('visible','true');
 	});
 
 
@@ -169,6 +179,12 @@ b6.addEventListener('mouseenter', function () {
 	   b4.setAttribute('visible','true');
 	   b6.setAttribute('visible','false');
 	   });	
+m1.addEventListener('mouseenter',function(){
+	m1.setAttribute('src',"#message1");
+});
+m1.addEventListener('mouseleave',function(){
+	m1.setAttribute('src',"#spots");
+});
 </script>
 </body>
 </html>
